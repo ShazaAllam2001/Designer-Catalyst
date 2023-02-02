@@ -10,6 +10,8 @@
 .body {
     min-height: 100vh;
 	font-family: 'Roboto', sans-serif;
+    position: fixed;
+    z-index: 5;
 }
 
 .sidebar {
