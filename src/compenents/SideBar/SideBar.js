@@ -1,4 +1,4 @@
-import {useEffect} from 'react';
+import { useEffect } from 'react';
 
 import './SideBar.css';
 import { DrawPlane } from '../DrawPlane/DrawPlane.js';
