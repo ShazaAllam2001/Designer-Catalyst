@@ -7,6 +7,7 @@ export function DrawPlane() {
   const canvasRef = useRef(null);
   const ctxRef = useRef(null);
   const [isDrawing, setIsDrawing] = useState(false);
+  const [isEraser, setIsEraser] = useState(false);
   const [lineColor, setLineColor] = useState("black");
   const [lineWidth, setLineWidth] = useState(5);
   const [brushColor, setBrushColor] = useState("black");
@@ -24,16 +25,20 @@ export function DrawPlane() {
 
   function startDrawing(e) {
     ctxRef.current.beginPath();
-    ctxRef.current.moveTo(
-      e.nativeEvent.offsetX, 
-      e.nativeEvent.offsetY
-    );
+    if(!isEraser) {
+      ctxRef.current.moveTo(
+        e.nativeEvent.offsetX, 
+        e.nativeEvent.offsetY
+      );
+    }
     setIsDrawing(true);
   }
 
   function endDrawing() {
     ctxRef.current.closePath();
-    ctxRef.current.fill();
+    if(!isEraser) {
+      ctxRef.current.fill();
+    }
     setIsDrawing(false);
   }
 
@@ -41,6 +46,11 @@ export function DrawPlane() {
     if(!isDrawing) {
       return;
     }
+    if(!isEraser) 
+      ctxRef.current.globalCompositeOperation = "source-over";
+    else 
+      ctxRef.current.globalCompositeOperation = "destination-out";
+    
     ctxRef.current.lineTo(
       e.nativeEvent.offsetX, 
       e.nativeEvent.offsetY
@@ -55,6 +65,8 @@ export function DrawPlane() {
           setLineWidth={setLineWidth}
           setBrushColor={setBrushColor}
           brushColor={brushColor}
+          setIsEraser={setIsEraser}
+          isEraser={isEraser}
         />
         <canvas className="canvas-plane"
           onMouseDown={startDrawing}

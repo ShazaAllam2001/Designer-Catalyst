@@ -2,7 +2,7 @@ import { useEffect } from "react";
 
 import './DrawToolBar.css';
 
-export function DrawToolBar({ setLineColor, setLineWidth, setBrushColor, brushColor}) {
+export function DrawToolBar({ setLineColor, setLineWidth, setBrushColor, brushColor, setIsEraser, isEraser}) {
     const classes_colors = new Map([
         ["grass", "#00FF00"],
         ["person", "#FFCCCB"],
@@ -22,19 +22,23 @@ export function DrawToolBar({ setLineColor, setLineWidth, setBrushColor, brushCo
                     toolBtn.classList.remove('active');
                 });
                 toolBtn.classList.add('active');
+                if(toolBtn.id == 'erase')
+                    setIsEraser(true);
+                else
+                    setIsEraser(false);
             });
         });
 
-    }, [brushColor]);
+    }, [brushColor, isEraser]);
 
     return (
         <div className="tool-bar">
             <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet"/>
             <div className="draw-tool-bar">
-                <button className="btn-tool active">
+                <button className="btn-tool active" id="draw">
                     <i className="bx bx-pencil" style={{ fontSize: '22px' }}></i>
                 </button>
-                <button className="btn-tool">
+                <button className="btn-tool" id="erase">
                     <i className="bx bx-eraser" style={{ fontSize: '22px' }}></i>
                 </button>
 
@@ -45,7 +49,7 @@ export function DrawToolBar({ setLineColor, setLineWidth, setBrushColor, brushCo
                         setLineColor(e.target.value);
                     }}
                 />
-                <label> Pencil Width </label>
+                <label> Stroke Width </label>
                 <input
                     type="range"
                     min="3"

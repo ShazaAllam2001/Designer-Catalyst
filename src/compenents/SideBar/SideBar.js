@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 
 import './SideBar.css';
 import { DrawPlane } from '../DrawPlane/DrawPlane.js';
+import { Profile } from '../Profile/Profile.js';
 
 export function SideBar({ useToggle }) {
 
@@ -30,7 +31,7 @@ export function SideBar({ useToggle }) {
 
     return (
         <div>
-            <DrawPlane/>
+            <Profile/>
             <div className="body">
                 <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet"/>
                 <div className="sidebar">
