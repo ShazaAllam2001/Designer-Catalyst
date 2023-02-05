@@ -80,6 +80,7 @@
 	margin: 4px 0;
 	color: #fff;
 	transition: .3s;
+	text-decoration: none;
 }
 
 .sidebar nav .nav-item.active {

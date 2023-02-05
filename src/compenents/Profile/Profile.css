@@ -23,12 +23,39 @@
 
 .profile-img {
     border-radius: 8px;
+    padding: 10px;
     width: 200px;
     height: 200px;
+}
+
+.input-fields {
+    display: grid;
+    grid-template-rows: auto auto auto auto;
+    grid-template-columns: auto auto auto;
+    gap: 10px;
 }
 
 h2 {
     font-size: 22px;
     font-style: italic;
-    padding: 2px;
+    padding: 3px;
+}
+
+.input-value {
+    padding: 5px;
+    width: 220px;
+    height: 30px;
+    font-size: 16px;
+}
+
+.edit-icon {
+    width: 30px;
+    height: 30px;
+    font-size: 24px;
+    padding: 3px;
+    border-radius: 3px;
+}
+
+.edit-icon:hover, .edit-icon:active {
+    background-color: var(--gray-color);
 }

@@ -1,8 +1,16 @@
 import { useEffect } from 'react';
+import { Route, Routes, Link } from 'react-router-dom';
 
 import './SideBar.css';
-import { DrawPlane } from '../DrawPlane/DrawPlane.js';
+import avatar from '../../assets/avatar.png';
+
 import { Profile } from '../Profile/Profile.js';
+import { ImageMorphing } from '../ImageMorphing/ImageMorphing.js';
+import { ImageAugmentation } from '../ImageAugmentation/ImageAugmentation.js';
+import { Home } from '../Home/Home.js';
+import { GenerateImage } from '../GenerateImage/GenerateImage.js';
+import { SavedImages } from '../SavedImages/SavedImages.js';
+import { DrawPlane } from '../DrawPlane/DrawPlane.js';
 
 export function SideBar({ useToggle }) {
 
@@ -31,7 +39,16 @@ export function SideBar({ useToggle }) {
 
     return (
         <div>
-            <Profile/>
+            <Routes>
+                <Route path="/profile" element={<Profile/>}></Route>
+                <Route path="/" element={<Home/>}></Route>
+                <Route path="/morphing" element={<ImageMorphing/>}></Route>
+                <Route path="/augmentation" element={<ImageAugmentation/>}></Route>
+                <Route path="/generate" element={<GenerateImage/>}></Route>
+                <Route path="/images" element={<SavedImages/>}></Route>
+                <Route path="/draw" element={<DrawPlane/>}></Route>
+            </Routes>
+
             <div className="body">
                 <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet"/>
                 <div className="sidebar">
@@ -40,7 +57,7 @@ export function SideBar({ useToggle }) {
                     </div>
 
                     <div className="logo">
-                        <img src="https://github.com/hosseinnabi-ir/Responsive-Glass-Sidebar-using-CSS-and-JavaScript/blob/36ddc0b7e60f1da4ab38d9d45311f405a3e8e8c0/images/logo.png?raw=true" alt="..."/>
+                        <img src={avatar} alt="..."/>
                         <h3>User Name</h3>
                     </div>
 
@@ -48,33 +65,47 @@ export function SideBar({ useToggle }) {
 
                     <nav>
                         <ul>
-                            <li className="nav-item">
-                                <i className="bx bxs-face"></i>
-                                <span>Profile</span>
+                            <li>
+                                <Link to="/profile" className="nav-item">
+                                    <i className="bx bxs-face"></i>
+                                    <span>Profile</span>
+                                </Link>
                             </li>
-                            <li className="nav-item active">
-                                <i className="bx bxs-home"></i>
-                                <span>Home</span>
+                            <li>
+                                <Link to="/" className="nav-item active">
+                                    <i className="bx bxs-home"></i>
+                                    <span>Home</span>
+                                </Link>
                             </li>
-                            <li className="nav-item">
-                                <i className="bx bxs-image-add"></i>
-                                <span>Generate Image</span>
+                            <li>
+                                <Link to="/generate" className="nav-item">
+                                    <i className="bx bxs-image-add"></i>
+                                    <span>Generate Image</span>
+                                </Link>
                             </li>
-                            <li className="nav-item">
-                                <i className="bx bxs-image"></i>
-                                <span>Image Morphing</span>
+                            <li>
+                                <Link to="/morphing" className="nav-item">
+                                    <i className="bx bxs-image"></i>
+                                    <span>Image Morphing</span>
+                                </Link>
                             </li>
-                            <li className="nav-item">
-                                <i className="bx bx-images"></i>
-                                <span>Image Augmentation</span>
+                            <li>
+                                <Link to="/augmentation" className="nav-item">
+                                    <i className="bx bx-images"></i>
+                                    <span>Image Augmentation</span>
+                                </Link>
                             </li>
-                            <li className="nav-item">
-                                <i className="bx bxs-photo-album"></i>
-                                <span>Saved Images</span>
+                            <li>
+                                <Link to="/images" className="nav-item">
+                                    <i className="bx bxs-photo-album"></i>
+                                    <span>Saved Images</span>
+                                </Link>
                             </li>
-                            <li className="nav-item">
-                                <i className="bx bxs-pencil"></i>
-                                <span>Draw</span>
+                            <li>
+                                <Link to="/draw" className="nav-item">
+                                    <i className="bx bxs-pencil"></i>
+                                    <span>Draw</span>
+                                </Link>
                             </li>
                             <li className="nav-item">
                                 <i className="bx bxs-bell"></i>
