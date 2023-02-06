@@ -6,16 +6,18 @@ import avatar from '../../assets/avatar.png';
 export function Profile() {
     const [firstName, setFirstName] = useState("Tom");
     const [secondName, setSecondName] = useState("Holland");
+    const [job, setJob] = useState("Machine learing Engineer");
     const [email, setEmail] = useState("TomHolland@gmail.com");
     const [password, setPassword] = useState("TomHolland200");
 
     useEffect(() => {
         // update them to database
         
-    },[firstName, secondName, email, password]);
+    },[firstName, secondName, job, email, password]);
 
     const [isFirstNameDisabled, setIsFirstNameDisabled] = useState(true);
     const [isSecondNameDisabled, setIsSecondNameDisabled] = useState(true);
+    const [isJobDisabled, setIsJobDisabled] = useState(true);
     const [isEmailDisabled, setIsEmailDisabled] = useState(true);
     const [isPasswordDisabled, setIsPasswordDisabled] = useState(true);
 
@@ -24,6 +26,9 @@ export function Profile() {
     }
     function editSecondName() {
         setIsSecondNameDisabled(!isSecondNameDisabled);
+    }
+    function editJob() {
+        setIsJobDisabled(!isJobDisabled);
     }
     function editEmail() {
         setIsEmailDisabled(!isEmailDisabled);
@@ -59,6 +64,17 @@ export function Profile() {
                         }}
                     />
                     <button className="edit-icon" onClick={editSecondName}>
+                        <i className="bx bx-pencil"></i>
+                    </button>
+
+                    <h2> Job Description </h2>
+                    <input type="text" className="input-value" value={job} 
+                        disabled={isJobDisabled} 
+                        onChange={(e) => {
+                            setJob(e.target.value);
+                        }}
+                    />
+                    <button className="edit-icon" onClick={editJob}>
                         <i className="bx bx-pencil"></i>
                     </button>
 

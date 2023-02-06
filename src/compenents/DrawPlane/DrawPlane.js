@@ -8,7 +8,6 @@ export function DrawPlane() {
   const ctxRef = useRef(null);
   const [isDrawing, setIsDrawing] = useState(false);
   const [isEraser, setIsEraser] = useState(false);
-  const [lineColor, setLineColor] = useState("black");
   const [lineWidth, setLineWidth] = useState(5);
   const [brushColor, setBrushColor] = useState("black");
 
@@ -17,11 +16,11 @@ export function DrawPlane() {
     const ctx = canvas.getContext("2d");
     ctx.lineCap = "round";
     ctx.lineJoin = "round";
-    ctx.strokeStyle = lineColor;
+    ctx.strokeStyle = brushColor;
     ctx.lineWidth = lineWidth;
     ctx.fillStyle = brushColor;
     ctxRef.current = ctx;
-  }, [lineColor, lineWidth, brushColor]);
+  }, [lineWidth, brushColor]);
 
   function startDrawing(e) {
     ctxRef.current.beginPath();
@@ -61,7 +60,6 @@ export function DrawPlane() {
   return (
     <div className="draw-plane">
         <DrawToolBar
-          setLineColor={setLineColor}
           setLineWidth={setLineWidth}
           setBrushColor={setBrushColor}
           brushColor={brushColor}

@@ -2,8 +2,10 @@ import { useEffect } from "react";
 
 import './DrawToolBar.css';
 
-export function DrawToolBar({ setLineColor, setLineWidth, setBrushColor, brushColor, setIsEraser, isEraser}) {
+export function DrawToolBar({ setLineWidth, setBrushColor, brushColor, setIsEraser, isEraser}) {
     const classes_colors = new Map([
+        ["", "#000000"],
+        ["ground", "#964B00"],
         ["grass", "#00FF00"],
         ["person", "#FFCCCB"],
         ["sky", "#ADD8E6"],
@@ -22,7 +24,7 @@ export function DrawToolBar({ setLineColor, setLineWidth, setBrushColor, brushCo
                     toolBtn.classList.remove('active');
                 });
                 toolBtn.classList.add('active');
-                if(toolBtn.id == 'erase')
+                if(toolBtn.id === 'erase')
                     setIsEraser(true);
                 else
                     setIsEraser(false);
@@ -42,13 +44,6 @@ export function DrawToolBar({ setLineColor, setLineWidth, setBrushColor, brushCo
                     <i className="bx bx-eraser" style={{ fontSize: '22px' }}></i>
                 </button>
 
-                <label> Pencil Color </label>
-                <input
-                    type="color"
-                    onChange={(e) => {
-                        setLineColor(e.target.value);
-                    }}
-                />
                 <label> Stroke Width </label>
                 <input
                     type="range"
