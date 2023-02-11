@@ -5,9 +5,9 @@ import './SideBar.css';
 import avatar from '../../assets/avatar.png';
 
 import { Profile } from '../Profile/Profile.js';
+import { Home } from '../Home/Home.js';
 import { ImageMorphing } from '../ImageMorphing/ImageMorphing.js';
 import { ImageAugmentation } from '../ImageAugmentation/ImageAugmentation.js';
-import { Home } from '../Home/Home.js';
 import { GenerateImage } from '../GenerateImage/GenerateImage.js';
 import { SavedImages } from '../SavedImages/SavedImages.js';
 import { DrawPlane } from '../DrawPlane/DrawPlane.js';
@@ -46,7 +46,7 @@ export function SideBar() {
         <div>
             <Routes>
                 <Route path="/profile" element={<Profile/>}></Route>
-                <Route path="/" element={<Home/>}></Route>
+                <Route path="/home" element={<Home/>}></Route>
                 <Route path="/morphing" element={<ImageMorphing/>}></Route>
                 <Route path="/augmentation" element={<ImageAugmentation/>}></Route>
                 <Route path="/generate" element={<GenerateImage/>}></Route>
@@ -78,7 +78,7 @@ export function SideBar() {
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/" className="nav-item" id="/">
+                                <Link to="/" className="nav-item" id="/home">
                                     <i className="bx bxs-home"></i>
                                     <span>Home</span>
                                 </Link>

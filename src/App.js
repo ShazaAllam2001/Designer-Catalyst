@@ -1,14 +1,15 @@
-import logo from './logo.svg';
 import './App.css';
 
-import { SignUp } from './compenents/SignUp/SignUp.js';
+import { Route, Routes } from 'react-router-dom';
+
 import { SignIn } from './compenents/SignIn/SignIn.js';
+import { SignUp } from './compenents/SignUp/SignUp.js';
 import { SideBar } from './compenents/SideBar/SideBar.js';
 
 function App() {
   return (
     <div className="App">
-      <SideBar/>
+      <SideBar />
     </div>
   );
 }

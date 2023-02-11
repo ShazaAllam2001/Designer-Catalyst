@@ -1,7 +1,12 @@
 import './SignIn.css';
+
+import { useNavigate } from "react-router-dom";
+
 import { TitleBar } from '../TitleBar/TitleBar.js';
 
 export function SignIn() {
+  const navigate = useNavigate();
+
   return (
     <div>
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
@@ -25,13 +30,13 @@ export function SignIn() {
               </div>
 
               <div class="sign-in-button">
-                <input type="button" class="block-button-big" value="SIGN IN"/>
+                <input type="button" class="block-button-big" value="SIGN IN" onClick={() => navigate("/home")}/>
               </div>
           </form>
 
             <div className="sign-up">
                 <div> Don't have an account? </div>
-                <button className="block-button-small left-margin">
+                <button className="block-button-small left-margin" onClick={() => navigate("/signUp")}>
                     SIGN UP
                 </button>
             </div>   
