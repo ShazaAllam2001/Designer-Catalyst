@@ -9,7 +9,11 @@ import { SideBar } from './compenents/SideBar/SideBar.js';
 function App() {
   return (
     <div className="App">
-      <SideBar />
+      <Routes>
+        <Route path="/" element={<SignIn/>}></Route>
+        <Route path="/signUp" element={<SignUp/>}></Route>
+        <Route path="/home/*" element={<SideBar/>}></Route>
+      </Routes>
     </div>
   );
 }

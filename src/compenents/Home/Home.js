@@ -1,5 +1,7 @@
 import './Home.css';
 
+import { Post } from '../Post/Post.js';
+
 export function Home() {
   let posts = [
     //{key: 1, image: <img src={}></img>, time: }
@@ -11,7 +13,7 @@ export function Home() {
 
   return (
     <div className="home">
-        {content}
+        <Post />
     </div>
   );
 }

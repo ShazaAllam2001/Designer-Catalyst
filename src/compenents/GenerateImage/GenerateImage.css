@@ -6,6 +6,49 @@
     width: 100%;
     z-index: 0;
     display: flex;
+    flex-direction: column;
 	align-items: center;
-	justify-content: center;
+	padding: 10px;
+}
+
+.generate-image .image-div {
+    margin-top: 12px;
+}
+
+.generate-image .image-div .generated-image {
+    width: 500px;
+    height: 500px;
+}
+
+.generate-image .image-div .text-prompt {
+    width: 600px;
+    height: 32px;
+    padding: 5px;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.action-btn {
+    margin-left: 20px;
+    width: 100px;
+    height: 32px;
+    padding: 5px;
+    color: white;
+    background-color: var(--blue-color);
+    font-size: 16px;
+    font-variant: small-caps;
+}
+
+.action-btn:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.action-btn:active {
+    transform: translateY(1px);
+    outline: none;
+}
+
+.mask {
+    width: 140px;
 }
