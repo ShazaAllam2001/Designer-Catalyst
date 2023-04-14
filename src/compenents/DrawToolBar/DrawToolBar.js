@@ -2,7 +2,7 @@ import { useEffect } from "react";
 
 import './DrawToolBar.css';
 
-export function DrawToolBar({ setLineWidth, setBrushColor, brushColor, setIsEraser, isEraser}) {
+export function DrawToolBar({ setLineWidth, setBrushColor, brushColor, setIsEraser, isEraser, canvasElement}) {
     const classes_colors = new Map([
         ["", "#000000"],
         ["ground", "#964B00"],
@@ -71,7 +71,15 @@ export function DrawToolBar({ setLineWidth, setBrushColor, brushColor, setIsEras
                     <i className="bx bx-save" style={{ fontSize: '22px' }}></i>
                     Save 
                 </button>
-                <button className="btn download">
+                <button className="btn download" 
+                    onClick={(e) => {
+                        var imageURI = canvasElement.current.toDataURL("image/png");
+                        const downloadEl = document.createElement('a');
+                        downloadEl.href = imageURI;
+                        downloadEl.download = "generated-mask-image"; // name of downloaded file
+                        downloadEl.click();
+                        downloadEl.remove();
+                    }}>
                     <i className="bx bx-download" style={{ fontSize: '22px' }}></i>
                     Download 
                 </button>

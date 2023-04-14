@@ -16,7 +16,7 @@ export function DrawPlane() {
     const ctx = canvas.getContext("2d");
     ctx.lineCap = "round";
     ctx.lineJoin = "round";
-    ctx.strokeStyle = brushColor;
+    ctx.strokeStyle = "black";
     ctx.lineWidth = lineWidth;
     ctx.fillStyle = brushColor;
     ctxRef.current = ctx;
@@ -65,6 +65,7 @@ export function DrawPlane() {
           brushColor={brushColor}
           setIsEraser={setIsEraser}
           isEraser={isEraser}
+          canvasElement={canvasRef}
         />
         <canvas className="canvas-plane"
           onMouseDown={startDrawing}
