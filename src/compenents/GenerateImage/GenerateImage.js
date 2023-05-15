@@ -7,7 +7,8 @@ export function GenerateImage() {
 
       <div className="generate-div">
         <input type="text" className="text-prompt" placeholder="Text prompt" />
-        <button className="action-btn"> 
+        <button className="action-btn generate"> 
+          <i className="bx bx-play" style={{ fontSize: '20px' }}></i>
           generate
         </button>
       </div>
@@ -18,20 +19,30 @@ export function GenerateImage() {
           <img className="image" 
             src="https://fastly.picsum.photos/id/596/1024/768.jpg?hmac=q9PXDEOrLj3oAS3xpSFnYzN__ZQa_RxqouJ0G-sHQ8A" 
             alt="Segmentation mask" />
-          <button className="action-btn mask" > 
-            upload mask
-          </button>
+          <div className="control mask-control">
+            <button className="action-btn mask" > 
+              <i className="bx bx-upload" style={{ fontSize: '22px' }}></i>
+              upload mask
+            </button>
+            <button className="action-btn mask" > 
+              <i className="bx bx-select-multiple" style={{ fontSize: '22px' }}></i>
+              select mask
+            </button>
+          </div>
         </div>
+
         <div className="image-div">
           <h2> Generated Image </h2>
           <img className="image" 
             src="https://fastly.picsum.photos/id/596/1024/768.jpg?hmac=q9PXDEOrLj3oAS3xpSFnYzN__ZQa_RxqouJ0G-sHQ8A" 
             alt="Generated" />
-          <div>
+          <div className="control generated-control">
             <button className="action-btn"> 
+              <i className="bx bx-save" style={{ fontSize: '20px' }}></i>
               save
             </button>
-            <button className="action-btn"> 
+            <button className="action-btn download"> 
+              <i className="bx bx-download" style={{ fontSize: '20px' }}></i>
               download
             </button>
           </div>

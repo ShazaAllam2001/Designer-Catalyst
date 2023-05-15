@@ -54,25 +54,24 @@
     padding: 5px;
 }
 
-.action-btn {
-    width: 100px;
-    height: 32px;
-    padding: 5px;
-    color: white;
-    background-color: var(--blue-color);
-    font-size: 16px;
-    font-variant: small-caps;
+.generate-image .images-div .image-div .control {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.action-btn:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+.mask-control {
+    width: 380px;
 }
 
-.action-btn:active {
-    transform: translateY(1px);
-    outline: none;
+.generated-control {
+    width: 300px;
+}
+
+.generate, .download {
+    width: 120px;
 }
 
 .mask {
-    width: 140px;
+    width: 150px;
 }

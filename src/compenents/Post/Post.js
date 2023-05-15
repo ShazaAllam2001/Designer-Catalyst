@@ -1,19 +1,11 @@
 import './Post.css';
 
 import avatar from '../../assets/avatar.png';
-import postContent from '../../assets/post-img.jpg';
 
-import { Comments } from '../Comments/Comments.js';
+import { Comment } from '../Comment/Comment.js';
 
-export function Post() {
-    const userAvatar = avatar;
-    const username = "User Name";
-    const date = new Date('July 20, 2021 20:17:40 GMT+00:00');
-    const content = postContent;
-    const rating = 4.6;
-    const commentsCount = 20;
-    const comment = {avatar: avatar, text: "It is awsome!"};
-
+export function Post({ userAvatar, username, date, content, rating, commentsCount, comment }) {
+ 
     function rate() {
 
     }
@@ -56,16 +48,7 @@ export function Post() {
                 </div>
             </div>
 
-            <div className="comment">
-                <div className="user-avatar">
-                    <img src={comment.avatar} alt="author avatar"></img>
-                </div>
-
-                <div className="user-data">
-                    <div className="username"> {username} </div>
-                    <div className="comment-text"> {comment.text} </div>
-                </div>
-            </div>
+            <Comment avatar={comment.avatar} username={username} text={comment.text} />
 
             <div className="comment-input">
                 <div className="user-avatar">

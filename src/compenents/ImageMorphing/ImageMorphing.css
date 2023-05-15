@@ -54,3 +54,18 @@
     align-items: center;    
     overflow-x: scroll;
 }
+
+.save {
+    width: 90px;
+}
+
+.download {
+    width: 120px;
+}
+
+.morph {
+    width: 100px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}

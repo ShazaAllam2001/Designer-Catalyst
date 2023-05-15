@@ -39,7 +39,8 @@ export function ImageMorphing() {
           </label>
         </div>
 
-        <button className="block-button-small">
+        <button className="block-button-small morph">
+          <i className="bx bx-play" style={{ fontSize: '20px' }}></i>
           MORPH
         </button>
       </div>
