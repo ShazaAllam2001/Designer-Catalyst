@@ -30,7 +30,7 @@ function connectToDB() {
 }
 
 function checkEmailExists(db, email) {
-    db.query('SELECT email FROM users WHERE email = ?', [email], async (error, result) => {
+    db.query('SELECT email FROM users_accounts WHERE email = ?', [email], async (error, result) => {
         if(error) {
             console.log(error)
         }

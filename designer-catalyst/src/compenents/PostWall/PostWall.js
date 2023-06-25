@@ -4,6 +4,8 @@ import { Post } from '../Post/Post.js';
 
 import avatar from '../../assets/avatar.png';
 
+import { useState } from 'react';
+
 export function PostWall() {
     // just for testing
     const userAvatar = avatar;
@@ -34,9 +36,54 @@ export function PostWall() {
     );
     // just for testing
 
+    const [createPost, setCreatePost] = useState(null);
+
+    function showCreatePost() {
+        setCreatePost(
+            <div className="bgmodal">
+                <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet"/>
+                <div className="modal-content">
+                    <button className="close">
+                        <i className="material-icons" onClick={closeCreatePost}>
+                            close
+                        </i>
+                    </button>
+                    <div className="content">
+                        <input type="text" className="text-bar" placeholder="Caption" />
+                        <img className="maximized-image" src="https://fastly.picsum.photos/id/570/1024/768.jpg?hmac=J7Peq8uX0IP0xe5hpd0yP2QY8o7RehGcLKdIsRWR3dE" alt="..." />
+                        <div className="btns">
+                            <button className="btn"> 
+                                <i className="bx bx-upload" style={{ fontSize: '22px' }}></i>
+                                Upload 
+                            </button>
+                            <button className="btn"> 
+                                <i className="bx bx-share" style={{ fontSize: '22px' }}></i>
+                                Share
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
+    function closeCreatePost() {
+        setCreatePost(null);
+    }
+
     return (
-        <div className="post-wall">
-            {posts}
+        <div className="background">
+            <div className="upper-bar">
+                <input type="search" className="text-bar" placeholder="Search"></input>
+                <button className="action-btn create-post" onClick={showCreatePost}> 
+                    <i className="bx bx-plus" style={{ fontSize: '20px' }}></i>
+                    create post 
+                </button>
+            </div>
+            <div className="post-wall">
+                {posts}
+            </div>
+            {createPost}
         </div>
     );
 }

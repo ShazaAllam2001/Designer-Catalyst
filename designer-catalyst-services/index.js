@@ -1,14 +1,16 @@
-const accounts = require('./socialAppServices/accountingService/accountsService');
+const accounts = require('./services/accountingService/accountsService');
 
 const express = require('express');
 const app = express();
 
 app.post("/register", (req, res) => {    
+    /*console.log(req.body);
     const { firstName, secondName, email, password, password_confirm } = req.body;
     if(password == password_confirm) {
         db = accounts.connectToDB();
         accounts.signUpUser(db, firstName, secondName, email, password);
-    }
+    }*/
+    return res.json({message: "test1"});
 });
 
 app.get("/api", (req, res) => {    
